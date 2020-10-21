@@ -6,11 +6,14 @@ import PIL
 from PIL import Image
 import os
 import shutil
+import glob
 
 if not os.path.exists("separated_Cenek_images"):
     os.makedirs("separated_Cenek_images")
 count = 0
-for filename in os.listdir("new_different_frames"):
+#filelist = glob.glob(os.path.join('new_different_frames/'))
+for filename in sorted(os.listdir('new_different_frames')):
+    print(filename)
     if not filename.startswith('.'):
         if count < 29:
             if not os.path.exists('separated_Cenek_images/plastic_bottles'):
